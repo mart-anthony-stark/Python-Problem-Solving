@@ -7,7 +7,7 @@ class Point:
         self.y = y
 
     def __str__(self) -> str:
-        print("-")
+        return "-"
 
     def getDistance(self, other) -> float:
         difX = self.x - other.x
@@ -17,6 +17,19 @@ class Point:
         return sqrt(x+y).real
 
 
+class Inuman:
+    def __init__(self, point, number, name, price) -> None:
+        self.x = point.x
+        self.y = point.y
+        self.number = number
+        self.name = name
+        self.price = price
+    
+    def __str__(self) -> str:
+        return self.number
+
+
 p1 = Point(1, 2)
 p2 = Point(4, 6)
+print(p1)
 print(p1.getDistance(p2))
