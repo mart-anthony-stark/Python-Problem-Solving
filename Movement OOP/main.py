@@ -10,11 +10,11 @@ class Point:
         print("-")
 
     def getDistance(self, other) -> float:
-        x = pow(2, self.x - other.x)
-        y = pow(2, self.y - other.y)
-        print(x)
-        print(y)
-        return sqrt(x+y)
+        difX = self.x - other.x
+        difY = self.y - other.y
+        x = pow(difX, 2)
+        y = pow(difY, 2)
+        return sqrt(x+y).real
 
 
 p1 = Point(1, 2)
