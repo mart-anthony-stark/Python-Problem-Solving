@@ -1,4 +1,5 @@
 from cmath import sqrt
+from unicodedata import name
 
 
 class Point:
@@ -18,15 +19,27 @@ class Point:
 
 
 class Inuman:
-    def __init__(self, point, number, name, price) -> None:
+    def __init__(self, point: Point, number: int, name: str, price: float) -> None:
         self.x = point.x
         self.y = point.y
         self.number = number
         self.name = name
         self.price = price
-    
+
     def __str__(self) -> str:
         return self.number
+
+
+class Person:
+    def __init__(self, point: Point, name: str, money: str, inumanList: list) -> None:
+        self.x = point.x
+        self.y = point.y
+        self.name = name
+        self.money = money
+        self.inumanList = inumanList
+
+    def __str__(self) -> str:
+        return self.name[0]
 
 
 p1 = Point(1, 2)
