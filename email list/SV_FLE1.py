@@ -5,28 +5,34 @@ class Email:
         self.firstname = firstname
         self.lastname = lastname
 
+    def __str__(self) -> str:  # Formatted email (fnamelname@company.com)
+        return f"{self.firstname.lower()}{self.lastname.lower()}@{self.company}.com"
 
-class Emails:
-    def __init__(self) -> None:
-        self.email_list = []
-        self.email_input = True
 
-    def generate(self) -> None:
-        print("============= EMAIL LIST GENERATOR =============\n")
-        while self.email_input:
-            choice = input("Do you want to add a name? (yes/no): ")
+# Method for new email input
+def create_email():
+    fname = input("Enter first name: ")
+    lname = input("Enter last name: ")
+    return Email(firstname=fname, lastname=lname)
 
-            if(choice.lower() == "yes"):
-                fname = input("Enter first name: ")
-                lname = input("Enter last name: ")
-                newEmail = Email(firstname=fname, lastname=lname)
-                self.email_list.append(newEmail)
-            elif(choice.lower() == "no"):
-                self.email_input = False
+# Show numbered email
+def show_email_list():
+    print("=================================================")
+    print("===========       GENERATED EMAILS      =========")
+    print("=================================================")
+    for i, email in enumerate(email_list):
+        print(str(i+1) + ". " + email.firstname.lower() +
+              email.lastname.lower()+"@"+email.company+".com")
 
-        print("=================================================")
-        print("===========       GENERATED EMAILS      =========")
-        print("=================================================")
-        for i, email in enumerate(self.email_list):
-            print(str(i+1) + ". " + email.firstname.lower() +
-                email.lastname.lower()+"@"+email.company+".com")
+
+email_list = []
+email_input = True
+print("============= EMAIL LIST GENERATOR =============\n")
+while email_input:
+    choice = input("\nDo you want to add a name? (yes/no): ")
+
+    if(choice.lower() == "yes"):
+        email_list.append(create_email())
+    elif(choice.lower() == "no"):
+        email_input = False
+        show_email_list()
