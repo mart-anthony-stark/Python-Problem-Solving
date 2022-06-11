@@ -5,7 +5,7 @@ class Email:
         self.firstname = firstname
         self.lastname = lastname
 
-    def __str__(self) -> str:  # Formatted email (fnamelname@company.com)
+    def __str__(self):  # Formatted email (fnamelname@company.com)
         return f"{self.firstname.lower()}{self.lastname.lower()}@{self.company}.com"
 
 
@@ -15,8 +15,8 @@ def create_email():
     lname = input("Enter last name: ")
     return Email(firstname=fname, lastname=lname)
 
-# Show numbered email
-def show_email_list():
+
+def show_email_list():  # Show numbered email
     print("=================================================")
     print("===========       GENERATED EMAILS      =========")
     print("=================================================")
